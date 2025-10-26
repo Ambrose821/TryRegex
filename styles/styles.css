@@ -18,6 +18,23 @@ body{
 
 }
 
+@keyframes slide-up {
+  
+    0%{
+
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    30%{
+        opacity: 0;
+    }
+    100%{
+        transform: translateY(0%);
+        opacity: 1;
+    }
+    
+}
+
 .main{
     display: flex;
     width: 90%;
@@ -25,6 +42,7 @@ body{
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    animation: slide-up 1.5s ease forwards;
 }
 
 .title{
@@ -54,7 +72,7 @@ body{
     display: flex;
     flex-direction: column;
     padding: 1rem;
-    
+  
 
     
 }
