@@ -11,18 +11,18 @@
         <div class = "main">
             <div class ="title">
                 <h1>Try Regex</h1>
-                <h3>Enter some text and practice your regex patterns!</h3>
+                <h3>Enter Some Text and Practice Your Regex Patterns!</h3>
             </div>
             <div class = "content">
                 <div class="regex">
-                    <input type="text" placeholder="Input Regex Patten" class="regex-input">
+                    <input type="text" placeholder="Input Regex Patten" class="regex-input" id="regex-input">
                 </div>
                 <div class = "input-output">
                     <div class="output">
-                        <textarea name="" id="" placeholder="Output" ></textarea>
+                        <textarea name="" id="text-output" placeholder="Output" ></textarea>
                     </div>
                     <div class="input">
-                        <textarea placeholder="Input Plain Text" id=""></textarea>
+                        <textarea placeholder="Input Plain Text" id="text-input"></textarea>
                     </div>
                 </div>
             </div>
@@ -30,6 +30,55 @@
          
             
         </div>
+
+        <script>
+
+            let input = document.getElementById("text-input")
+            let output = document.getElementById("text-output")
+            let regex_input = document.getElementById("regex-input")
+            let regex_pattern = ""
+            let input_text= ""
+            let output_text = ""
+            function handleInput(event){
+
+                if(!regex_pattern){
+                    console.log(event.target.value)
+                    input_text = event.target.value
+    
+                
+                }
+                else{
+                    input_text = event.target.value
+                    output_text = input_text.match(regex_pattern)
+                    output.innerHTML = output_text
+                    console.log("matched " +output_text)
+                }
+                
+            }
+            function setRegexPattern(event){
+        
+                regex_pattern = RegExp(event.target.value.replaceAll("/",""))
+                console.log(regex_pattern)
+                output_text = input_text.match(regex_pattern)
+                output.innerHTML = output_text
+                console.log("matched " +output_text)
+                
+            }
+
+           
+            input.addEventListener("input",(event)=>{
+                handleInput(event)
+            })
+
+            regex_input.addEventListener("input",(event)=>{
+                setRegexPattern(event)
+            })
+
+
+
+            
+            
+        </script>
     </body>
 
 </html>
