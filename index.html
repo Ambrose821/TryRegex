@@ -56,8 +56,8 @@
                 
             }
             function setRegexPattern(event){
-        
-                regex_pattern = RegExp(event.target.value.replaceAll("/",""))
+                
+                regex_pattern = RegExp(event.target.value)
                 console.log(regex_pattern)
                 output_text = input_text.match(regex_pattern)
                 output.innerHTML = output_text
